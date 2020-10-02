@@ -2,7 +2,7 @@ package ru.mirea.ikbo_01_19.practice6;
 
 import java.util.Comparator;
 
-public class SortingStudentsByGPA {
+public class SortingStudentsByGPA implements Comparable<SortingStudentsByGPA>{
     String surname;
     protected int gpa;
 
@@ -21,5 +21,11 @@ public class SortingStudentsByGPA {
 
     public String toString() {
         return (this.surname + ": " + this.gpa);
+    }
+
+    public int compareTo(SortingStudentsByGPA o) {
+        if(this.gpa == o.getGpa()){return 0;}
+        else if(this.gpa < o.getGpa()){return -1;}
+        else{return 1;}
     }
 }

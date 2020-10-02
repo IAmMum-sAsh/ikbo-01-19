@@ -33,7 +33,7 @@ public class Test {
             } else if (j > array2.length-1) {
                 result[k].setGpa(array1[i].getGpa()); result[k].setSurname(array1[i].getSurname());
                 i++;
-            } else if (array1[i].getGpa() < array2[j].getGpa()) {
+            } else if (array1[i].compareTo(array2[j]) < 0) {
                 result[k].setGpa(array1[i].getGpa()); result[k].setSurname(array1[i].getSurname());
                 i++;
             } else {
@@ -76,3 +76,16 @@ public class Test {
         }
     }
 }
+
+/*
+    5
+    Петров 3
+    Внсечкин 5
+    Игоренко 11
+    Фёдоров 2
+    Иисус 666
+    3
+    Каин -99
+    Транзакция 72
+    Тупик 0
+ */
