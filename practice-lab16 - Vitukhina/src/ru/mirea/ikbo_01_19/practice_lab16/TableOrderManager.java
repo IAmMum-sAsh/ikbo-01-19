@@ -1,42 +1,87 @@
-package ru.mirea.ikbo_01_19.practice_lab16;
+//***************************************************************************//
 
-import java.awt.*;
+package ru.mirea.ikbo_01_19.practice_lab16;
 
 public class TableOrderManager implements OrderManager {
     private Order[] orders;
 
-    public void add(Order order, int tableNumber){}
-    public void addItem(MenuItem item, int tableNumber){}
-    public int FreeTableNumber(){ return 0; }
-    public int[] FreeTableNumbers(){ return null; }
-    public Order getOrder(int tableNumber){ return null; }
-    public void remove(int tableNumber){}
-    public int remove(Order order){ return 0; }
-    public int removeAll(Order order){ return 0; }
+    public TableOrderManager(){orders = new Order[10];}
 
+    public void add(Order order, int tableNumber){orders[tableNumber] = order;}
+
+    public void addItem(MenuItem item, int tableNumber){orders[tableNumber].add(item);}
+
+    public int FreeTableNumber(){
+        for (int i=0; i<orders.length; i++) {
+            if (orders[i] == null){return i;}
+        }
+        return -1;
+    }
+
+    public int[] FreeTableNumbers(){
+        int count = 0;
+        for(int i=0; i<orders.length; i++){
+            if (orders[i] == null){count++;}
+        }
+        int[] arr = new int[count];
+        count = 0;
+        for(int i=0; i<orders.length; i++){
+            if (orders[i] == null){arr[count] = i;}
+        }
+        return arr;
+    }
+
+    public Order getOrder(int tableNumber){return orders[tableNumber];}
+
+    public void remove(int tableNumber){orders[tableNumber] = null;}
+
+    public int remove(Order order){
+        for (int i = 0; i < orders.length; i++) {
+            if (orders[i].equals(order)) {
+                orders[i] = null;
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int removeAll(Order order){
+        int count = 0;
+        for (int i=0; i<orders.length; i++) {
+            if (orders[i].equals(order)) {
+                orders[i] = null;
+                count++;
+            }
+        }
+        return count;
+    }
 
     @Override
     public int itemsQuantity(String itemName) {
-        return 0;
-    }
-
-    @Override
-    public Order[] getOrders() {
-        return new Order[0];
-    }
-
-    @Override
-    public int ordersCostSummary() {
-        return 0;
-    }
-
-    @Override
-    public int orderQuantity() {
-        return 0;
+        int count = 0;
+        for (int i=0; i<orders.length; i++){ count += orders[i].itemQuantity(itemName); }
+        return count;
     }
 
     @Override
     public int itemsQuantity(MenuItem item) {
-        return 0;
+        return itemsQuantity(item.getName());
+    }
+
+    @Override
+    public Order[] getOrders() {
+        return orders;
+    }
+
+    @Override
+    public int ordersCostSummary() {
+        int sum = 0;
+        for (int i=0; i<orders.length; i++){ sum += orders[i].costTotal(); }
+        return sum;
+    }
+
+    @Override
+    public int orderQuantity() {
+        return orders.length;
     }
 }

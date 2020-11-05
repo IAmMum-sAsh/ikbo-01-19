@@ -26,4 +26,13 @@ public class MenuItem {
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "cost=" + cost +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

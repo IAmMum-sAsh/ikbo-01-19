@@ -1,3 +1,5 @@
+//***************************************************************************//
+
 package ru.mirea.ikbo_01_19.practice_lab16;
 
 import java.util.Arrays;
@@ -6,22 +8,23 @@ public class InternetOrder implements Order{
     private int size = 0;
     private ListNode head;
     private ListNode tail;
+    private Customer customer;
 
+    public InternetOrder(){}
 
     public boolean add(MenuItem item) {
         try {
-            if (head == null) {
-                head = new ListNode();
-                tail = new ListNode();
+            if (head == null){
+                head = tail = new ListNode();
                 head.setValue(item);
-                head.setNext(tail);
-                tail.setNext(head);
+                head.setNext(head);
             }
-            else {
+            else{
                 ListNode node = new ListNode();
                 node.setValue(item);
-                node.setNext(tail);
-                head.setNext(node);
+                tail.setNext(node);
+                node.setNext(head);
+                tail = node;
             }
             size++;
         }
@@ -90,9 +93,7 @@ public class InternetOrder implements Order{
     }
 
     @Override
-    public boolean remove(MenuItem item) {
-        return remove(item.getName());
-    }
+    public boolean remove(MenuItem item) { return remove(item.getName()); }
 
     @Override
     public int removeAll(String itemName) {
@@ -113,7 +114,7 @@ public class InternetOrder implements Order{
     public int removeAll(MenuItem item) {
         return removeAll(item.getName());
     }
-    //***************************************************************************//
+
     @Override
     public MenuItem[] sortedItemsByCostDesc() {
         MenuItem[] arr = getItems();
@@ -126,16 +127,18 @@ public class InternetOrder implements Order{
 
     @Override
     public int costTotal() {
-        return 0;
+        int sum = 0;
+        ListNode node = head;
+        for (int i=0; i<size; i++){
+            sum += node.getValue().getCost();
+            node = node.getNext();
+        }
+        return sum;
     }
 
     @Override
-    public Customer getCustomer() {
-        return null;
-    }
+    public Customer getCustomer() { return customer; }
 
     @Override
-    public void setCustomer(Customer customer) {
-
-    }
+    public void setCustomer(Customer customer) { this.customer = customer; }
 }
