@@ -6,14 +6,8 @@ public enum DrinkTypeEnum {
     BEER,
     WINE,
     VODKA,
-    BRANDY,
-    CHAMPAGNE,
     WHISKEY,
-    TEQUILA,
     RUM,
-    VERMUTH,
-    LIQUOR,
-    JAGERMEISTER,
     JUICE,
     COFEE,
     GREEN_TEA,
@@ -31,22 +25,10 @@ public enum DrinkTypeEnum {
                 return WINE;
             case "Водка":
                 return VODKA;
-            case "Бренди":
-                return BRANDY;
-            case "Шампанское":
-                return CHAMPAGNE;
             case "Виски":
                 return WHISKEY;
-            case "Текила":
-                return TEQUILA;
             case "Ром":
                 return RUM;
-            case "Вермут":
-                return VERMUTH;
-            case "Ликер":
-                return LIQUOR;
-            case "Егермейстер":
-                return JAGERMEISTER;
             case "Сок":
                 return JUICE;
             case "Кофе":

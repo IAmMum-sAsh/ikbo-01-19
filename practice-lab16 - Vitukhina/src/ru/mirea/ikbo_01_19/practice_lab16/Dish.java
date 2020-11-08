@@ -28,6 +28,6 @@ public class Dish extends MenuItem{
 
     @Override
     public String toString() {
-        return "<html>Наименование: " + this.getName() + "<br>Цена: " + this.getCost() + "<br>Описание: " + this.getDescription() + "</html>";
+        return "<html>Наименование: " + this.getName() + "<br>Цена: " + this.getCost() + "<br>Описание: " + this.getDescription() + "<hr></html>";
     }
 }
