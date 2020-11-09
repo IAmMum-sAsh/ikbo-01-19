@@ -17,7 +17,7 @@ public enum DrinkTypeEnum {
     SODA,
     ELSE;
 
-    public DrinkTypeEnum DrinkType (String type){
+    public static DrinkTypeEnum DrinkType (String type){
         switch(type){
             case "Пиво":
                 return BEER;

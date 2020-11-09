@@ -9,8 +9,14 @@ public class InternetOrder implements Order{
     private ListNode head;
     private ListNode tail;
     private Customer customer;
+    private String summary;
 
     public InternetOrder(){}
+
+    @Override
+    public String getSummary() { return summary; }
+
+    public void setSummary(String summary) { this.summary = summary; }
 
     public boolean add(MenuItem item) {
         try {

@@ -20,8 +20,7 @@ public class Drink extends MenuItem implements Alcoholable{
 
     @Override
     public String toString() {
-        return "<html>Наименование: " + this.getName() + "<br>Цена: " + this.getCost() + "<br>Описание: " + this.getDescription() + "<br>Тип напитка: " + type
-                + "<br>Содержание алкоголя: " + alcoholVol+"</html>";
+        return "Наименование: " + this.getName() + "<br>Цена: " + this.getCost() + "<br>Описание: " + this.getDescription() + "<br>Содержание алкоголя: " + alcoholVol + "<hr>";
     }
 
     @Override

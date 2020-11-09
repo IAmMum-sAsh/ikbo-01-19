@@ -3,7 +3,7 @@ package ru.mirea.ikbo_01_19.practice_lab16;
 public class InternetOrdersManager implements OrderManager{
     private QueueNode head;
     private QueueNode tail;
-    private int size;
+    private int size = 0;
 
     public InternetOrdersManager(){}
 
@@ -37,9 +37,13 @@ public class InternetOrdersManager implements OrderManager{
         QueueNode node = head;
         for (int i=0; i<size; i++){
             if (node.getValue() == order){
-                node.getPrev().setNext(node.getNext());
-                node.getNext().setPrev(node.getPrev());
-                node = null;
+                if(size == 2){
+                    head = tail = node.getNext();
+                }
+                else{
+                    node.getPrev().setNext(node.getNext());
+                    node.getNext().setPrev(node.getPrev());
+                }
                 size--;
             }
             node = node.getNext();
@@ -91,7 +95,5 @@ public class InternetOrdersManager implements OrderManager{
     }
 
     @Override
-    public int orderQuantity() {
-        return size;
-    }
+    public int orderQuantity() { return size; }
 }

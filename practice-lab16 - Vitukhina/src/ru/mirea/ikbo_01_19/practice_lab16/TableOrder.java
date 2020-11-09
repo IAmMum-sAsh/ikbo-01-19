@@ -124,4 +124,7 @@ public class TableOrder implements Order {
 
     @Override
     public void setCustomer(Customer customer) { this.customer = customer; }
+
+    @Override
+    public String getSummary() { return ""; }
 }

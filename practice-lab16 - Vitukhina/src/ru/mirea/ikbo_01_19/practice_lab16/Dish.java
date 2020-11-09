@@ -12,22 +12,7 @@ public class Dish extends MenuItem{
     }
 
     @Override
-    public String getDescription() {
-        return this.getDescription();
-    }
-
-    @Override
-    public String getName() {
-        return this.getName();
-    }
-
-    @Override
-    public int getCost() {
-        return this.getCost();
-    }
-
-    @Override
     public String toString() {
-        return "<html>Наименование: " + this.getName() + "<br>Цена: " + this.getCost() + "<br>Описание: " + this.getDescription() + "<hr></html>";
+        return "Наименование: " + this.getName() + "<br>Цена: " + this.getCost() + "<br>Описание: " + this.getDescription() + "<hr>";
     }
 }

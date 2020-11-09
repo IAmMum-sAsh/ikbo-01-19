@@ -17,4 +17,5 @@ public interface Order {
     public int costTotal();
     public Customer getCustomer();
     public void setCustomer(Customer customer);
+    public String getSummary();
 }

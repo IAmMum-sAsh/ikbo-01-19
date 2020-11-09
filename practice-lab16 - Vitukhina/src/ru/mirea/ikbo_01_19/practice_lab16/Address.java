@@ -46,13 +46,6 @@ public class Address {
 
     @Override
     public String toString() {
-        return "<html>" +
-                "Город: " + cityName +
-                "<br>Индекс: " + zipCode +
-                "<br>Улица: " + streetName +
-                "<br>Номер дома: " + buildingNumber +
-                "<br>Буква дома: " + buildingLetter +
-                "<br>Квартира: " + apartmentNumber +
-                "</html>";
+        return (cityName + " (" + zipCode + "),<br>" + streetName + " " + buildingNumber + buildingLetter + ", " + apartmentNumber);
     }
 }
